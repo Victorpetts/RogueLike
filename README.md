@@ -1,2 +1,1 @@
-Summer assignment game
-Victor Pettersson
+Summer assignment game by Victor Pettersson
