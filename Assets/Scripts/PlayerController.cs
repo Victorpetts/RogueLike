@@ -29,5 +29,9 @@ public class PlayerController : MonoBehaviour {
         animator.SetBool("IsMoving", dir.magnitude > 0);
 
         GetComponent<Rigidbody2D>().velocity = speed * dir;
+        
+        if (Input.GetKeyDown(KeyCode.Space)) {
+            animator.SetTrigger("Attack");
+        }
     }
 }
