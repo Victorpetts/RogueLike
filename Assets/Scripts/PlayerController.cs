@@ -2,15 +2,15 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
     
-    public float speed;
+    public float movementSpeed;
     private Animator animator;
-    private SpriteRenderer sprite;
-    // private Transform transform;
+    private Transform transform;
+    private Rigidbody2D rb;
 
     private void Start() {
         animator = GetComponent<Animator>();
-        sprite = GetComponent<SpriteRenderer>();
-        // transform = GetComponent<Transform>();
+        transform = GetComponent<Transform>();
+        rb = GetComponent<Rigidbody2D>();
     }
 
     private void Update() {
@@ -18,13 +18,11 @@ public class PlayerController : MonoBehaviour {
         
         if (Input.GetKey(KeyCode.A)) {
             dir.x = -1;
-            sprite.flipX = false;
-            // transform.Rotate(0, 180, 0);
+            transform.localScale = new Vector3(1.5f, 1.5f, 1.5f);
         }
         else if (Input.GetKey(KeyCode.D)) {
             dir.x = 1;
-            sprite.flipX = true;
-            // transform.Rotate(0, 180, 0);
+            transform.localScale = new Vector3(-1.5f, 1.5f, 1.5f);
         }
         
         if (Input.GetKey(KeyCode.W)) {
@@ -37,10 +35,6 @@ public class PlayerController : MonoBehaviour {
         dir.Normalize();
         animator.SetBool("IsMoving", dir.magnitude > 0);
 
-        GetComponent<Rigidbody2D>().velocity = speed * dir;
-        
-        // if (Input.GetKeyDown(KeyCode.Space)) {
-        //     animator.SetTrigger("Attack");
-        // }
+        rb.velocity = movementSpeed * dir;
     }
 }
