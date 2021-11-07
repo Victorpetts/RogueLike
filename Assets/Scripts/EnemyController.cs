@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EnemyController : MonoBehaviour {
     [SerializeField] private string enemyName;
@@ -9,7 +10,10 @@ public class EnemyController : MonoBehaviour {
 
     private protected Transform target;
     private SpriteRenderer sprite;
-    
+
+    public Image hpBar;
+    public Image hpBarEffect;
+
     void Start() {
         currentHealth = maxHealth;
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
@@ -19,9 +23,13 @@ public class EnemyController : MonoBehaviour {
     void Update() {
         FacePlayer();
 
-        if (currentHealth <= 0) {
+        if (currentHealth <= 0)
             Death();
-        }
+
+        if (Input.GetKeyDown(KeyCode.Space)) 
+            currentHealth -= 1;
+
+        DisplayHpBar();
     }
 
     private void FixedUpdate() {
@@ -45,5 +53,16 @@ public class EnemyController : MonoBehaviour {
     
     protected virtual void Death() {
         Destroy(gameObject);
+    }
+
+    protected virtual void DisplayHpBar() {
+        hpBar.fillAmount = currentHealth / maxHealth;
+
+        if (hpBarEffect.fillAmount > hpBar.fillAmount) {
+            hpBarEffect.fillAmount -= 0.005f;
+        }
+        else {
+            hpBarEffect.fillAmount = hpBar.fillAmount;
+        }
     }
 }
