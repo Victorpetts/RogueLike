@@ -14,13 +14,19 @@ public class EnemyController : MonoBehaviour {
         currentHealth = maxHealth;
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         sprite = GetComponent<SpriteRenderer>();
-
-        Debug.Log(enemyName + " has " + currentHealth + " hp and " + moveSpeed + " speed");
     }
 
     void Update() {
-        Chase();
         FacePlayer();
+
+        if (currentHealth <= 0) {
+            Death();
+        }
+    }
+
+    private void FixedUpdate() {
+        Chase();
+        Attack();
     }
 
     protected virtual void Chase() {
@@ -31,5 +37,13 @@ public class EnemyController : MonoBehaviour {
 
     void FacePlayer() {
         sprite.flipX = transform.position.x > target.position.x;
+    }
+
+    protected virtual void Attack() {
+        Debug.Log(enemyName + " attacked");
+    }
+    
+    protected virtual void Death() {
+        Destroy(gameObject);
     }
 }
