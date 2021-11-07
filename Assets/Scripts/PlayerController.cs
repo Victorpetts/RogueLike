@@ -2,11 +2,14 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
     
-    public float movementSpeed;
-    private Animator animator;
-    private Transform transform;
     private Rigidbody2D rb;
+    private Transform transform;
+    private Animator animator;
+    
+    public float movementSpeed;
 
+    private Vector2 movement;
+    
     private void Start() {
         animator = GetComponent<Animator>();
         transform = GetComponent<Transform>();
@@ -14,27 +17,18 @@ public class PlayerController : MonoBehaviour {
     }
 
     private void Update() {
-        Vector2 dir = Vector2.zero;
-        
-        if (Input.GetKey(KeyCode.A)) {
-            dir.x = -1;
-            transform.localScale = new Vector3(1.5f, 1.5f, 1.5f);
-        }
-        else if (Input.GetKey(KeyCode.D)) {
-            dir.x = 1;
-            transform.localScale = new Vector3(-1.5f, 1.5f, 1.5f);
-        }
-        
-        if (Input.GetKey(KeyCode.W)) {
-            dir.y = 1;
-        }
-        else if (Input.GetKey(KeyCode.S)) {
-            dir.y = -1;
-        }
+        movement.x = Input.GetAxisRaw("Horizontal");
+        movement.y = Input.GetAxisRaw("Vertical");
+        animator.SetBool("IsMoving", movement.magnitude > 0);
 
-        dir.Normalize();
-        animator.SetBool("IsMoving", dir.magnitude > 0);
+        transform.localScale = movement.x switch {
+            1 => new Vector2(-1.5f, 1.5f),
+            -1 => new Vector2(1.5f, 1.5f),
+            _ => transform.localScale
+        };
+    }
 
-        rb.velocity = movementSpeed * dir;
+    private void FixedUpdate() {
+        rb.MovePosition(rb.position + movement * movementSpeed * Time.fixedDeltaTime);
     }
 }
