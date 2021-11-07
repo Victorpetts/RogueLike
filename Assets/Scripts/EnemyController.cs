@@ -6,7 +6,7 @@ public class EnemyController : MonoBehaviour {
     [SerializeField] private protected float moveSpeed;
     [SerializeField] private float maxHealth;
     [SerializeField] private protected float aggroRange;
-    private float currentHealth;
+    [SerializeField] private float currentHealth;
 
     private protected Transform target;
     private SpriteRenderer sprite;
@@ -18,23 +18,31 @@ public class EnemyController : MonoBehaviour {
         currentHealth = maxHealth;
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         sprite = GetComponent<SpriteRenderer>();
+        
+        Debug.Log(this.name + " has hp " + currentHealth);
+
     }
 
     void Update() {
         FacePlayer();
-
-        if (currentHealth <= 0)
-            Death();
-
-        if (Input.GetKeyDown(KeyCode.Space)) 
-            currentHealth -= 1;
-
         DisplayHpBar();
     }
 
     private void FixedUpdate() {
         Chase();
-        Attack();
+        // Attack();
+    }
+    
+    public void TakeDamage(float damage) {
+        Debug.Log(this.name + " got hit for dmg " + damage);
+        currentHealth -= damage;
+
+        // animator.SetTrigger("Hurt");
+
+        Debug.Log(this.name + " has hp " + currentHealth);
+
+        if (currentHealth <= 0)
+            Death();
     }
 
     protected virtual void Chase() {

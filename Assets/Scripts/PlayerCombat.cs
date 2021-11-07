@@ -6,7 +6,7 @@ public class PlayerCombat : MonoBehaviour {
     public LayerMask enemyLayer;
 
     public float attackRange = 0.5f;
-    public int attackDamage = 40;
+    public float attackDamage = 1f;
 
     public float attackRate = 2f;
     private float nextAttackTime;
@@ -26,8 +26,7 @@ public class PlayerCombat : MonoBehaviour {
         Collider2D[] enemiesHit = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayer);
 
         foreach (var enemy in enemiesHit) {
-            enemy.GetComponent<Enemy>().TakeDamage(attackDamage);
-            Debug.Log(enemy.name + " got hit. Big ow!");
+            enemy.GetComponent<EnemyController>().TakeDamage(attackDamage);
         }
     }
 
