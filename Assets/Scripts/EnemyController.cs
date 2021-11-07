@@ -2,12 +2,12 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour {
     [SerializeField] private string enemyName;
-    [SerializeField] private float moveSpeed;
+    [SerializeField] private protected float moveSpeed;
     [SerializeField] private float maxHealth;
+    [SerializeField] private protected float aggroRange;
     private float currentHealth;
 
-    private Transform target;
-    [SerializeField] private float aggroRange;
+    private protected Transform target;
     private SpriteRenderer sprite;
     
     void Start() {
@@ -23,7 +23,7 @@ public class EnemyController : MonoBehaviour {
         FacePlayer();
     }
 
-    void Chase() {
+    protected virtual void Chase() {
         if (Vector2.Distance(transform.position, target.position) < aggroRange) {
             transform.position = Vector2.MoveTowards(transform.position, target.position, moveSpeed * Time.deltaTime);
         }
