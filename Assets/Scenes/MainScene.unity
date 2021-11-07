@@ -7402,6 +7402,8 @@ MonoBehaviour:
   moveSpeed: 3
   maxHealth: 30
   aggroRange: 4
+  hpBar: {fileID: 0}
+  hpBarEffect: {fileID: 0}
 --- !u!114 &441248510
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7416,8 +7418,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyName: Witch
   moveSpeed: 2
-  maxHealth: 1
+  maxHealth: 2
   aggroRange: 2
+  hpBar: {fileID: 669797125}
+  hpBarEffect: {fileID: 34195263}
   tpRate: 4
   atkRate: 2
   projectile: {fileID: 2406469907155977383, guid: a70af5d32819bdb45bef0922258e7a4b, type: 3}
@@ -7671,6 +7675,8 @@ MonoBehaviour:
   moveSpeed: 2
   maxHealth: 10
   aggroRange: 99
+  hpBar: {fileID: 0}
+  hpBarEffect: {fileID: 0}
 --- !u!114 &510940787
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7685,8 +7691,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyName: Slime
   moveSpeed: 2
-  maxHealth: 40
+  maxHealth: 5
   aggroRange: 99
+  hpBar: {fileID: 1520431610}
+  hpBarEffect: {fileID: 1458765540}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -7979,7 +7987,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.7058824, g: 0.16470589, b: 0.16470589, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -8332,7 +8340,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.7058824, g: 0.16470589, b: 0.16470589, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -9321,6 +9329,8 @@ MonoBehaviour:
   moveSpeed: 5
   maxHealth: 10
   aggroRange: 5
+  hpBar: {fileID: 0}
+  hpBarEffect: {fileID: 0}
 --- !u!114 &1476179305
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9335,8 +9345,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyName: Bat
   moveSpeed: 5
-  maxHealth: 1
+  maxHealth: 3
   aggroRange: 2
+  hpBar: {fileID: 951271063}
+  hpBarEffect: {fileID: 1465498579}
   wayPoint1: {fileID: 1997074313}
   wayPoint2: {fileID: 860534153}
 --- !u!1 &1520431608
@@ -9389,7 +9401,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.7075472, g: 0.16353686, b: 0.16353686, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
