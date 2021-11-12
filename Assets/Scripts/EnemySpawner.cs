@@ -14,7 +14,7 @@ public class EnemySpawner : MonoBehaviour {
     }
 
     void SpawnEnemies() {
-        var spawns = Random.Range(2, 6);
+        var spawns = Random.Range(2, 5);
         while (enemyCount < spawns) {
             var randomEnemy = Random.Range(1, 101);
             int low;
