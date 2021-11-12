@@ -11,10 +11,10 @@ public class EnemyWitch : EnemyController {
     [SerializeField] private float minX, maxX, minY, maxY;
 
     protected override void Chase() {
-        RandomTeleport();
+        Teleport();
     }
 
-    private void RandomTeleport() {
+    private void Teleport() {
         tpTimer += Time.deltaTime;
 
         if (tpTimer > tpRate) {

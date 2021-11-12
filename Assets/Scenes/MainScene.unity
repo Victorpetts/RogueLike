@@ -7398,11 +7398,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ecc2992e604f4c46955891bc75d9a52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyName: Witch
-  moveSpeed: 3
-  maxHealth: 30
-  aggroRange: 4
+  maxHealth: 0
   currentHealth: 0
+  moveSpeed: 0
+  aggroRange: 0
   hpBar: {fileID: 0}
   hpBarEffect: {fileID: 0}
 --- !u!114 &441248510
@@ -7417,11 +7416,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac47481265e3f974aa530b6955279f81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyName: Witch
-  moveSpeed: 2
   maxHealth: 2
-  aggroRange: 2
   currentHealth: 0
+  moveSpeed: 0
+  aggroRange: 0
   hpBar: {fileID: 669797125}
   hpBarEffect: {fileID: 34195263}
   tpRate: 4
@@ -7695,16 +7693,15 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 510940781}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7ecc2992e604f4c46955891bc75d9a52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyName: Slime
-  moveSpeed: 2
-  maxHealth: 30
-  aggroRange: 99
+  maxHealth: 10
   currentHealth: 0
+  moveSpeed: 0
+  aggroRange: 0
   hpBar: {fileID: 1520431610}
   hpBarEffect: {fileID: 1458765540}
 --- !u!114 &510940787
@@ -7714,16 +7711,15 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 510940781}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 238080dd8dfbe2c47992b5b80636effd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyName: Slime
-  moveSpeed: 2
-  maxHealth: 50
-  aggroRange: 99
+  maxHealth: 3
   currentHealth: 0
+  moveSpeed: 2
+  aggroRange: 99
   hpBar: {fileID: 1520431610}
   hpBarEffect: {fileID: 1458765540}
 --- !u!61 &510940788
@@ -9271,11 +9267,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ecc2992e604f4c46955891bc75d9a52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyName: Bat
-  moveSpeed: 5
-  maxHealth: 20
-  aggroRange: 5
+  maxHealth: 0
   currentHealth: 0
+  moveSpeed: 0
+  aggroRange: 0
   hpBar: {fileID: 951271063}
   hpBarEffect: {fileID: 1465498579}
 --- !u!114 &1476179305
@@ -9290,11 +9285,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f354fec6b99433645853bb4666aff9aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyName: Bat
-  moveSpeed: 5
-  maxHealth: 20
-  aggroRange: 5
+  maxHealth: 10
   currentHealth: 0
+  moveSpeed: 3
+  aggroRange: 4
   hpBar: {fileID: 951271063}
   hpBarEffect: {fileID: 1465498579}
   wayPoint1: {fileID: 1997074313}
@@ -9665,7 +9659,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   attackRange: 0.7
-  attackDamage: 10
+  attackDamage: 1
   attackRate: 2
 --- !u!1 &1997074312
 GameObject:

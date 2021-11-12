@@ -14,10 +14,8 @@ public class EnemyBat : EnemyController {
         if (Vector2.Distance(transform.position, target.position) > aggroRange) {
             if (Vector2.Distance(transform.position, waypointTarget.position) < 0.01f) {
                 waypointTarget = waypointTarget == wayPoint1 ? wayPoint2 : wayPoint1;
-            } 
-            
-            transform.position =
-                Vector2.MoveTowards(transform.position, waypointTarget.position, moveSpeed * Time.deltaTime);
+            }
+            transform.position = Vector2.MoveTowards(transform.position, waypointTarget.position, moveSpeed * Time.deltaTime);
         }
     }
 }

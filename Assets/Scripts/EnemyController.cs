@@ -2,11 +2,10 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class EnemyController : MonoBehaviour {
-    [SerializeField] private string enemyName;
-    [SerializeField] private protected float moveSpeed;
     [SerializeField] private float maxHealth;
-    [SerializeField] private protected float aggroRange;
     [SerializeField] private float currentHealth;
+    [SerializeField] private protected int moveSpeed;
+    [SerializeField] private protected int aggroRange;
 
     private protected Transform target;
     private SpriteRenderer sprite;
@@ -14,35 +13,42 @@ public class EnemyController : MonoBehaviour {
     public Image hpBar;
     public Image hpBarEffect;
 
-    void Start() {
-        currentHealth = maxHealth;
+    private float CurrentHealth {
+        get => currentHealth;
+        set {
+            currentHealth = value;
+            if (currentHealth <= 0) {
+                Death();
+            }
+        }
+    }
+
+    private void Start() {
+        CurrentHealth = maxHealth;
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         sprite = GetComponent<SpriteRenderer>();
         
         Debug.Log(this.name + " has hp " + currentHealth);
-
     }
 
-    void Update() {
+    private void Update() {
         FacePlayer();
         DisplayHpBar();
     }
 
     private void FixedUpdate() {
         Chase();
-        // Attack();
+        Attack();
     }
     
     public void TakeDamage(float damage) {
-        Debug.Log(this.name + " got hit for dmg " + damage);
-        currentHealth -= damage;
+        CurrentHealth -= damage;
 
         // animator.SetTrigger("Hurt");
-
-        Debug.Log(this.name + " has hp " + currentHealth);
-
-        if (currentHealth <= 0)
-            Death();
+    }
+    
+    private void Death() {
+        Destroy(gameObject);
     }
 
     protected virtual void Chase() {
@@ -51,20 +57,16 @@ public class EnemyController : MonoBehaviour {
         }
     }
 
-    void FacePlayer() {
+    protected virtual void Attack() {
+        Debug.Log(this.name + " attacked");
+    }
+
+    private void FacePlayer() {
         sprite.flipX = transform.position.x > target.position.x;
     }
 
-    protected virtual void Attack() {
-        Debug.Log(enemyName + " attacked");
-    }
-    
-    protected virtual void Death() {
-        Destroy(gameObject);
-    }
-
-    protected virtual void DisplayHpBar() {
-        hpBar.fillAmount = currentHealth / maxHealth;
+    private void DisplayHpBar() {
+        hpBar.fillAmount = CurrentHealth / maxHealth;
 
         if (hpBarEffect.fillAmount > hpBar.fillAmount) {
             hpBarEffect.fillAmount -= 0.005f;
