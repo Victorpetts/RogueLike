@@ -7,6 +7,7 @@ public class EnemySpawner : MonoBehaviour {
     [SerializeField] private float minX, maxX, minY, maxY;
 
     public List<GameObject> enemyTypes = new List<GameObject>();
+    public List<int> enemyProbabilities = new List<int>();
     
     void Start() {
         SpawnEnemies();
@@ -14,14 +15,19 @@ public class EnemySpawner : MonoBehaviour {
 
     void SpawnEnemies() {
         var spawns = Random.Range(2, 6);
-        var index = enemyTypes.Count;
-        var randomEnemy = Random.Range(0, index);
-
         while (enemyCount < spawns) {
-            spawnPosition = new Vector2(Random.Range(minX, maxX), Random.Range(minY, maxY));
-            Instantiate(enemyTypes[randomEnemy], spawnPosition, Quaternion.identity);
+            var randomEnemy = Random.Range(1, 101);
+            int low;
+            int high = 0;
+            for (int i = 0; i < enemyTypes.Count; i++) {
+                low = high;
+                high += enemyProbabilities[i];
+                if (randomEnemy >= low && randomEnemy < high) {
+                    spawnPosition = new Vector2(Random.Range(minX, maxX), Random.Range(minY, maxY));
+                    Instantiate(enemyTypes[i], spawnPosition, Quaternion.identity);
+                }
+            }
             enemyCount ++;
-            randomEnemy = Random.Range(0, index);
         }
     }
 }
