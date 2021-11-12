@@ -58,7 +58,9 @@ public class EnemyController : MonoBehaviour {
     }
 
     protected virtual void Attack() {
-        Debug.Log(this.name + " attacked");
+        if (Vector2.Distance(transform.position, target.position) < 1) {
+            Debug.Log(this.name + " attacked");
+        }
     }
 
     private void FacePlayer() {

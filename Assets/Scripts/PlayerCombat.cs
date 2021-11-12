@@ -27,13 +27,13 @@ public class PlayerCombat : MonoBehaviour {
 
         foreach (var enemy in enemiesHit) {
             switch (enemy.name) {
-                case "Bat":
+                case "Bat(Clone)":
                     enemy.GetComponent<EnemyBat>().TakeDamage(attackDamage);
                     break;
-                case "Slime":
+                case "Slime(Clone)":
                     enemy.GetComponent<EnemySlime>().TakeDamage(attackDamage);
                     break;
-                case "Witch":
+                case "Witch(Clone)":
                     enemy.GetComponent<EnemyWitch>().TakeDamage(attackDamage);
                     break;
             }

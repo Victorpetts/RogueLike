@@ -24,8 +24,6 @@ public class EnemyWitch : EnemyController {
     }
 
     protected override void Attack() {
-        base.Attack();
-
         atkTimer += Time.deltaTime;
         
         if (atkTimer > atkRate) {
