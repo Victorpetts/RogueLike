@@ -3,8 +3,10 @@ using UnityEngine;
 using UnityEngine.Tilemaps;
 
 public class TilemapVisualizer : MonoBehaviour {
-    [SerializeField]private Tilemap floorTilemap;
-    [SerializeField]private TileBase floorTile; // create array for random tiles
+    [SerializeField]private Tilemap floorTilemap, wallTilemap;
+
+    [SerializeField] private TileBase floorTile, wallTop;
+    // create array for random tiles
 
     public void PaintFloorTiles(IEnumerable<Vector2Int> floorPositions) {
         PaintTiles(floorPositions, floorTilemap, floorTile);
@@ -23,5 +25,10 @@ public class TilemapVisualizer : MonoBehaviour {
 
     public void Clear() {
         floorTilemap.ClearAllTiles();
+        wallTilemap.ClearAllTiles();
+    }
+
+    public void PaintSingleBasicWall(Vector2Int position) {
+        PaintSingleTile(wallTilemap, wallTop, position);
     }
 }
