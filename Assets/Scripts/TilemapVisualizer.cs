@@ -23,12 +23,12 @@ public class TilemapVisualizer : MonoBehaviour {
         tilemap.SetTile(tilePosition, tile);
     }
 
+    public void PaintSingleBasicWall(Vector2Int position) {
+        PaintSingleTile(wallTilemap, wallTop, position);
+    }
+
     public void Clear() {
         floorTilemap.ClearAllTiles();
         wallTilemap.ClearAllTiles();
-    }
-
-    public void PaintSingleBasicWall(Vector2Int position) {
-        PaintSingleTile(wallTilemap, wallTop, position);
     }
 }

@@ -12,6 +12,7 @@ public static class WallGenerator {
 
     private static object FindWallsInDirections(HashSet<Vector2Int> floorPositions, List<Vector2Int> directionList) {
         HashSet<Vector2Int> wallPositions = new HashSet<Vector2Int>();
+        
         foreach (var position in floorPositions) {
             foreach (var direction in directionList) {
                 var neighbourPosition = position + direction;
@@ -19,7 +20,7 @@ public static class WallGenerator {
                     wallPositions.Add(neighbourPosition);
             }
         }
-
+        
         return wallPositions;
     }
 }
