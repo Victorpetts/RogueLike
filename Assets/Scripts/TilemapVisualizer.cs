@@ -20,7 +20,7 @@ public class TilemapVisualizer : MonoBehaviour {
         }
     }
     private void PaintExit(IEnumerable<Vector2Int> positions, Tilemap tilemap, TileBase tile) {
-        var exitPos = positions.ElementAt(Random.Range(0, positions.Count()));
+        var exitPos = positions.ElementAt(Random.Range(0, 10));
         PaintSingleTile(tilemap, tile, exitPos);
     }
 
