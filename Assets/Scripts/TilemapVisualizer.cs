@@ -1,10 +1,12 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
 public class TilemapVisualizer : MonoBehaviour {
     [SerializeField] private Tilemap floorTilemap;
     [SerializeField] private TileBase floorTile;
+    [SerializeField] private TileBase exitTile;
 
     public void PaintFloorTiles(IEnumerable<Vector2Int> floorPositions) {
         PaintTiles(floorPositions, floorTilemap, floorTile);
@@ -14,6 +16,9 @@ public class TilemapVisualizer : MonoBehaviour {
         foreach (var position in positions) {
             PaintSingleTile(tilemap, tile, position);
         }
+
+        var exitPos = positions.ElementAt(Random.Range(0, positions.Count()));
+        PaintSingleTile(tilemap, exitTile, exitPos);
     }
 
     private void PaintSingleTile(Tilemap tilemap, TileBase tile, Vector2Int position) {
