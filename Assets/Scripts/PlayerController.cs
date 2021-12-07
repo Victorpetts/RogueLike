@@ -22,8 +22,8 @@ public class PlayerController : MonoBehaviour {
         animator.SetBool("IsMoving", movement.magnitude > 0);
 
         transform.localScale = movement.x switch {
-            1 => new Vector2(-1.5f, 1.5f),
-            -1 => new Vector2(1.5f, 1.5f),
+            1 => new Vector2(-1f, 1f),
+            -1 => new Vector2(1f, 1f),
             _ => transform.localScale
         };
     }
