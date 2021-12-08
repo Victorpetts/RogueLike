@@ -13,6 +13,13 @@ public class PlayerCombat : MonoBehaviour {
     private float nextAttackTime;
     
     public Renderer attackCircle;
+    
+    [SerializeField] private float currentHealth;
+    [SerializeField] private float maxHealth;
+
+    private void Start() {
+        CurrentHealth = maxHealth;
+    }
 
     void Update() {
         if (Time.time >= nextAttackTime) {
@@ -21,6 +28,24 @@ public class PlayerCombat : MonoBehaviour {
                 nextAttackTime = Time.time + 1f / attackRate;
             }
         }
+    }
+    
+    private float CurrentHealth {
+        get => currentHealth;
+        set {
+            currentHealth = value;
+            if (currentHealth <= 0) {
+                GameOver();
+            }
+        }
+    }
+
+    void GameOver() {
+        Debug.Log("You dead");
+    }
+
+    public void TakeDamage(float damage) {
+        CurrentHealth -= damage;
     }
 
     void Attack() {

@@ -8,6 +8,7 @@ public class EnemyController : MonoBehaviour {
     [SerializeField] private protected int aggroRange;
 
     private protected Transform target;
+    private protected PlayerCombat playerCombat;
     private SpriteRenderer sprite;
 
     public Image hpBar;
@@ -26,8 +27,8 @@ public class EnemyController : MonoBehaviour {
     private void Start() {
         CurrentHealth = maxHealth;
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        playerCombat = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerCombat>();
         sprite = GetComponent<SpriteRenderer>();
-        // Debug.Log(this.name + " has hp " + currentHealth);
     }
 
     private void Update() {
@@ -57,6 +58,7 @@ public class EnemyController : MonoBehaviour {
     protected virtual void Attack() {
         if (Vector2.Distance(transform.position, target.position) < 1) {
             Debug.Log(this.name + " attacked");
+            playerCombat.TakeDamage(1);
         }
     }
 
