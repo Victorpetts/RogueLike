@@ -3,7 +3,6 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour {
     
     private Rigidbody2D rb;
-    private Transform transform;
     private Animator animator;
     
     public float movementSpeed;
@@ -12,20 +11,16 @@ public class PlayerController : MonoBehaviour {
     
     private void Start() {
         animator = GetComponent<Animator>();
-        transform = GetComponent<Transform>();
         rb = GetComponent<Rigidbody2D>();
     }
 
     private void Update() {
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
-        animator.SetBool("IsMoving", movement.magnitude > 0);
-
-        transform.localScale = movement.x switch {
-            1 => new Vector2(-1f, 1f),
-            -1 => new Vector2(1f, 1f),
-            _ => transform.localScale
-        };
+        
+        animator.SetFloat("Horizontal", movement.x);
+        animator.SetFloat("Vertical", movement.y);
+        animator.SetFloat("Speed", movement.sqrMagnitude);
     }
 
     private void FixedUpdate() {

@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Tree Move Side
+  m_Name: Tree Move Left
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -20,13 +20,13 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: 21300000, guid: 898dab6b7cd524ce2807956319a8ca9f, type: 3}
+      value: {fileID: 21300000, guid: f66c3f5113aac38468cd07b6a5b86dcd, type: 3}
     - time: 0.1
-      value: {fileID: 21300000, guid: fafb79a14577a46f594f04e5635ad8f8, type: 3}
+      value: {fileID: 21300000, guid: 831ef1518d2a128459c33db8805cfaea, type: 3}
     - time: 0.2
-      value: {fileID: 21300000, guid: c4caec8cc98064142a508203aef791ad, type: 3}
+      value: {fileID: 21300000, guid: 760a3923aad0e3d4980c33c900e57b67, type: 3}
     - time: 0.3
-      value: {fileID: 21300000, guid: c6e71e5355da9443185e2258a6c47e2b, type: 3}
+      value: {fileID: 21300000, guid: bca99cb7e76d2814683336b5928a20d9, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -46,10 +46,10 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: 21300000, guid: 898dab6b7cd524ce2807956319a8ca9f, type: 3}
-    - {fileID: 21300000, guid: fafb79a14577a46f594f04e5635ad8f8, type: 3}
-    - {fileID: 21300000, guid: c4caec8cc98064142a508203aef791ad, type: 3}
-    - {fileID: 21300000, guid: c6e71e5355da9443185e2258a6c47e2b, type: 3}
+    - {fileID: 21300000, guid: f66c3f5113aac38468cd07b6a5b86dcd, type: 3}
+    - {fileID: 21300000, guid: 831ef1518d2a128459c33db8805cfaea, type: 3}
+    - {fileID: 21300000, guid: 760a3923aad0e3d4980c33c900e57b67, type: 3}
+    - {fileID: 21300000, guid: bca99cb7e76d2814683336b5928a20d9, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
