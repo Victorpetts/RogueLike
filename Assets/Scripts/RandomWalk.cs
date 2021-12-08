@@ -9,6 +9,7 @@ public class RandomWalk : AbstractDungeonGenerator {
         HashSet<Vector2Int> floorPositions = RunRandomWalk();
         tilemapVisualizer.Clear();
         tilemapVisualizer.PaintFloorTiles(floorPositions);
+        enemySpawner.SpawnEnemies(floorPositions);
     }
 
     protected HashSet<Vector2Int> RunRandomWalk() {

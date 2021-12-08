@@ -27,8 +27,7 @@ public class EnemyController : MonoBehaviour {
         CurrentHealth = maxHealth;
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         sprite = GetComponent<SpriteRenderer>();
-        
-        Debug.Log(this.name + " has hp " + currentHealth);
+        // Debug.Log(this.name + " has hp " + currentHealth);
     }
 
     private void Update() {
@@ -43,8 +42,6 @@ public class EnemyController : MonoBehaviour {
     
     public void TakeDamage(float damage) {
         CurrentHealth -= damage;
-
-        // animator.SetTrigger("Hurt");
     }
     
     private void Death() {
@@ -72,8 +69,7 @@ public class EnemyController : MonoBehaviour {
 
         if (hpBarEffect.fillAmount > hpBar.fillAmount) {
             hpBarEffect.fillAmount -= 0.005f;
-        }
-        else {
+        } else {
             hpBarEffect.fillAmount = hpBar.fillAmount;
         }
     }

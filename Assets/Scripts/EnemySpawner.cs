@@ -1,19 +1,20 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour {
-    private int enemyCount;
-    private Vector2 spawnPosition;
-    [SerializeField] private float minX, maxX, minY, maxY;
+    // private Vector2Int spawnPosition;
+    // [SerializeField] private float minX, maxX, minY, maxY;
 
     public List<GameObject> enemyTypes = new List<GameObject>();
     public List<int> enemyProbabilities = new List<int>();
     
-    void Start() {
-        SpawnEnemies();
-    }
+    // void Start() {
+    //     SpawnEnemies();
+    // }
 
-    void SpawnEnemies() {
+    public void SpawnEnemies(IEnumerable<Vector2Int> floorPositions) {
+        var enemyCount = 0;
         var spawns = Random.Range(2, 5);
         while (enemyCount < spawns) {
             var randomEnemy = Random.Range(1, 101);
@@ -23,7 +24,9 @@ public class EnemySpawner : MonoBehaviour {
                 low = high;
                 high += enemyProbabilities[i];
                 if (randomEnemy >= low && randomEnemy < high) {
-                    spawnPosition = new Vector2(Random.Range(minX, maxX), Random.Range(minY, maxY));
+                    // spawnPosition = new Vector2(Random.Range(minX, maxX), Random.Range(minY, maxY));
+                    Vector2 spawnPosition = floorPositions.ElementAt(Random.Range(0, 10));
+                    // Vector2 test = spawnPosition;
                     Instantiate(enemyTypes[i], spawnPosition, Quaternion.identity);
                 }
             }
