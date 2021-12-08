@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class PlayerCombat : MonoBehaviour {
@@ -11,6 +12,8 @@ public class PlayerCombat : MonoBehaviour {
     public float attackRate = 2f;
     private float nextAttackTime;
     
+    public Renderer attackCircle;
+
     void Update() {
         if (Time.time >= nextAttackTime) {
             if (Input.GetKeyDown(KeyCode.Space)) {
@@ -21,7 +24,9 @@ public class PlayerCombat : MonoBehaviour {
     }
 
     void Attack() {
-        animator.SetTrigger("Attack");
+        // animator.SetTrigger("Attack");
+        attackCircle.enabled = true;
+        StartCoroutine(CircleEffect());
 
         Collider2D[] enemiesHit = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayer);
 
@@ -38,6 +43,11 @@ public class PlayerCombat : MonoBehaviour {
                     break;
             }
         }
+    }
+
+    IEnumerator CircleEffect() {
+        yield return new WaitForSeconds(0.1f);
+        attackCircle.enabled = false;
     }
 
     private void OnDrawGizmosSelected() {
