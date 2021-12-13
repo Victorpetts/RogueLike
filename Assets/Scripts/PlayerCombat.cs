@@ -1,8 +1,8 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerCombat : MonoBehaviour {
-    public Animator animator;
     public Transform attackPoint;
     public LayerMask enemyLayer;
 
@@ -16,19 +16,9 @@ public class PlayerCombat : MonoBehaviour {
     
     [SerializeField] private float currentHealth;
     [SerializeField] private float maxHealth;
-
-    private void Start() {
-        CurrentHealth = maxHealth;
-    }
-
-    void Update() {
-        if (Time.time >= nextAttackTime) {
-            if (Input.GetKeyDown(KeyCode.Space)) {
-                Attack();
-                nextAttackTime = Time.time + 1f / attackRate;
-            }
-        }
-    }
+    
+    public Image hpBar;
+    public Image hpBarEffect;
     
     private float CurrentHealth {
         get => currentHealth;
@@ -40,8 +30,24 @@ public class PlayerCombat : MonoBehaviour {
         }
     }
 
-    void GameOver() {
+    private void Start() {
+        CurrentHealth = maxHealth;
+    }
+
+    void Update() {
+        DisplayHpBar();
+        
+        if (Time.time >= nextAttackTime) {
+            if (Input.GetKeyDown(KeyCode.Space)) {
+                Attack();
+                nextAttackTime = Time.time + 1f / attackRate;
+            }
+        }
+    }
+
+    public void GameOver() {
         Debug.Log("You dead");
+        //Goto Deathscreen or menu??
     }
 
     public void TakeDamage(float damage) {
@@ -80,5 +86,15 @@ public class PlayerCombat : MonoBehaviour {
             return;
         
         Gizmos.DrawWireSphere(attackPoint.position, attackRange);
+    }
+    
+    private void DisplayHpBar() {
+        hpBar.fillAmount = CurrentHealth / maxHealth;
+
+        if (hpBarEffect.fillAmount > hpBar.fillAmount) {
+            hpBarEffect.fillAmount -= 0.005f;
+        } else {
+            hpBarEffect.fillAmount = hpBar.fillAmount;
+        }
     }
 }

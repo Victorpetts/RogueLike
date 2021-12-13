@@ -7,12 +7,16 @@ public class EnemyController : MonoBehaviour {
     [SerializeField] private protected int moveSpeed;
     [SerializeField] private protected int aggroRange;
 
-    private protected Transform target;
-    private protected PlayerCombat playerCombat;
+    private Transform target;
+    private PlayerCombat playerCombat;
+    
     private SpriteRenderer sprite;
 
     public Image hpBar;
     public Image hpBarEffect;
+    
+    public float attackRate = 2.5f;
+    private float nextAttackTime;
 
     private float CurrentHealth {
         get => currentHealth;
@@ -57,8 +61,10 @@ public class EnemyController : MonoBehaviour {
 
     protected virtual void Attack() {
         if (Vector2.Distance(transform.position, target.position) < 1) {
-            Debug.Log(this.name + " attacked");
-            playerCombat.TakeDamage(1);
+            if (Time.time >= nextAttackTime) {
+                playerCombat.TakeDamage(1);
+                nextAttackTime = Time.time + 1f / attackRate;
+            }
         }
     }
 

@@ -4,16 +4,13 @@ public class PlayerController : MonoBehaviour {
     
     private Rigidbody2D rb;
     private Animator animator;
-    private Transform transform;
     
     public float movementSpeed;
-
     private Vector2 movement;
     
     private void Start() {
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
-        transform = GetComponent<Transform>();
     }
 
     private GameObject[] enemies;
