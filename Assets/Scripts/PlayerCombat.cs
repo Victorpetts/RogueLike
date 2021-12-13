@@ -13,6 +13,7 @@ public class PlayerCombat : MonoBehaviour {
     private float nextAttackTime;
     
     public Renderer attackCircle;
+    public UIManager ui;
     
     [SerializeField] private float currentHealth;
     [SerializeField] private float maxHealth;
@@ -45,9 +46,9 @@ public class PlayerCombat : MonoBehaviour {
         }
     }
 
-    public void GameOver() {
-        Debug.Log("You dead");
-        //Goto Deathscreen or menu??
+    void GameOver() {
+        // ui = GetComponent<UIManager>();
+        ui.ActivatePanel();
     }
 
     public void TakeDamage(float damage) {

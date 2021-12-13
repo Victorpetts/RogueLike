@@ -142,7 +142,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &170886560
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -377,6 +377,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1062899995, guid: 049387f56cc7f724183ce75f79e7f189, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -80
+      objectReference: {fileID: 0}
     - target: {fileID: 1911479458, guid: 049387f56cc7f724183ce75f79e7f189, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -388,6 +392,26 @@ PrefabInstance:
     - target: {fileID: 1911479459, guid: 049387f56cc7f724183ce75f79e7f189, type: 3}
       propertyPath: m_LocalScale.y
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2034379322, guid: 049387f56cc7f724183ce75f79e7f189, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -80
+      objectReference: {fileID: 0}
+    - target: {fileID: 2129606085, guid: 049387f56cc7f724183ce75f79e7f189, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -80
+      objectReference: {fileID: 0}
+    - target: {fileID: 2129606086, guid: 049387f56cc7f724183ce75f79e7f189, type: 3}
+      propertyPath: m_Color.b
+      value: 0.60784316
+      objectReference: {fileID: 0}
+    - target: {fileID: 2129606086, guid: 049387f56cc7f724183ce75f79e7f189, type: 3}
+      propertyPath: m_Color.g
+      value: 0.5882353
+      objectReference: {fileID: 0}
+    - target: {fileID: 2129606086, guid: 049387f56cc7f724183ce75f79e7f189, type: 3}
+      propertyPath: m_Color.r
+      value: 0.21568629
       objectReference: {fileID: 0}
     - target: {fileID: 3346124917375391490, guid: 049387f56cc7f724183ce75f79e7f189, type: 3}
       propertyPath: m_RootOrder
@@ -437,6 +461,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 3346124917375391500, guid: 049387f56cc7f724183ce75f79e7f189, type: 3}
+      propertyPath: ui
+      value: 
+      objectReference: {fileID: 170886564}
     - target: {fileID: 3346124917375391500, guid: 049387f56cc7f724183ce75f79e7f189, type: 3}
       propertyPath: maxHealth
       value: 20
@@ -3533,7 +3561,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2062688101
 RectTransform:
   m_ObjectHideFlags: 0

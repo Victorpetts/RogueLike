@@ -60,7 +60,7 @@ public class EnemyController : MonoBehaviour {
     }
 
     protected virtual void Attack() {
-        if (Vector2.Distance(transform.position, target.position) < 1) {
+        if (Vector2.Distance(transform.position, target.position) < 1.5) {
             if (Time.time >= nextAttackTime) {
                 playerCombat.TakeDamage(1);
                 nextAttackTime = Time.time + 1f / attackRate;

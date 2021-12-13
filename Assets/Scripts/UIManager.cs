@@ -3,23 +3,19 @@ using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour {
     [SerializeField] private GameObject gameOverPanel;
-    private bool gameOver = false;
     
     void Start() {
         gameOverPanel.SetActive(false);
     }
-    
-    void Update() {
-        if (Input.GetKeyDown(KeyCode.G) && !gameOver) {
-            gameOver = true;
-            gameOverPanel.SetActive(true);
-        }
+    public void ActivatePanel() {
+        gameOverPanel.SetActive(true);
     }
 
     public void GoToMenu() {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        SceneManager.LoadScene(0);
+        // SceneManager.GetSceneByName("adas");
     }
-    
+
     public void RestartGame() {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
