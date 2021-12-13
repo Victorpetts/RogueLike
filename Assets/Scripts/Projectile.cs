@@ -5,6 +5,7 @@ public class Projectile : MonoBehaviour {
     
     [SerializeField] private float projectileSpeed;
     [SerializeField] private float lifeTime = 3f;
+    [SerializeField] private int projectileDamage = 2;
     private float lifeTimer;
     
     // public GameObject destroyEffect;
@@ -27,6 +28,7 @@ public class Projectile : MonoBehaviour {
         if (other.CompareTag("Player")) {
             // Instantiate(destroyEffect, transform.position, Quaternion.identity);
             Destroy(gameObject);
+            other.GetComponent<PlayerCombat>().TakeDamage(projectileDamage);
         }
     }
 }

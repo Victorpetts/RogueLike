@@ -55,7 +55,6 @@ public class PlayerCombat : MonoBehaviour {
     }
 
     void Attack() {
-        // animator.SetTrigger("Attack");
         attackCircle.enabled = true;
         StartCoroutine(CircleEffect());
 
