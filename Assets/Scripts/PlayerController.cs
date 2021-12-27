@@ -8,9 +8,16 @@ public class PlayerController : MonoBehaviour {
     public float movementSpeed;
     private Vector2 movement;
     
+    private BoxCollider2D playerCollider;
+    private BoxCollider2D enemyCollider;
+
     private void Start() {
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
+        // playerCollider = GetComponent<BoxCollider2D>();
+        // enemyCollider = GameObject.FindGameObjectWithTag("Player").GetComponent<BoxCollider2D>();
+        //
+        // Physics2D.IgnoreCollision(playerCollider, enemyCollider, true);
     }
 
     private GameObject[] enemies;
