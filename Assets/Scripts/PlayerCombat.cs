@@ -47,7 +47,7 @@ public class PlayerCombat : MonoBehaviour {
     }
 
     void GameOver() {
-        // ui = GetComponent<UIManager>();
+        gameObject.SetActive(false);
         ui.ActivatePanel();
     }
 

@@ -423,7 +423,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 10
+  m_Mass: 100
   m_LinearDrag: 5
   m_AngularDrag: 5
   m_GravityScale: 0
@@ -450,6 +450,7 @@ MonoBehaviour:
   aggroRange: 0
   hpBar: {fileID: 4400991821635157667}
   hpBarEffect: {fileID: 4400991821562081725}
+  attackRate: 1.5
 --- !u!114 &4400991822761810218
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -468,6 +469,7 @@ MonoBehaviour:
   aggroRange: 99
   hpBar: {fileID: 4400991821635157667}
   hpBarEffect: {fileID: 4400991821562081725}
+  attackRate: 1.5
 --- !u!61 &4400991822761810221
 BoxCollider2D:
   m_ObjectHideFlags: 0

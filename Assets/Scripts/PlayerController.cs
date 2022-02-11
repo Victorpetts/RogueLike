@@ -6,22 +6,18 @@ public class PlayerController : MonoBehaviour {
     private Animator animator;
     
     public float movementSpeed;
-    private Vector2 movement;
+    public Vector2 movement;
     
-    private BoxCollider2D playerCollider;
-    private BoxCollider2D enemyCollider;
-
+    private GameObject[] enemies;
+    
     private void Start() {
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
-        // playerCollider = GetComponent<BoxCollider2D>();
-        // enemyCollider = GameObject.FindGameObjectWithTag("Player").GetComponent<BoxCollider2D>();
-        //
-        // Physics2D.IgnoreCollision(playerCollider, enemyCollider, true);
     }
 
-    private GameObject[] enemies;
     private void Update() {
+        rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
         
@@ -29,6 +25,10 @@ public class PlayerController : MonoBehaviour {
         animator.SetFloat("Vertical", movement.y);
         animator.SetFloat("Speed", movement.sqrMagnitude);
 
+        if (movement == Vector2.zero) {
+            rb.constraints = RigidbodyConstraints2D.FreezeAll;
+        }
+        
         enemies = GameObject.FindGameObjectsWithTag("Enemy");
     }
 
