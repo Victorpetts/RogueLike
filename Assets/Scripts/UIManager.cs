@@ -13,7 +13,6 @@ public class UIManager : MonoBehaviour {
 
     public void GoToMenu() {
         SceneManager.LoadScene(0);
-        // SceneManager.GetSceneByName("adas");
     }
 
     public void RestartGame() {

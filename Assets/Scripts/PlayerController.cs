@@ -1,7 +1,7 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour {
-    
     private Rigidbody2D rb;
     private Animator animator;
     
@@ -9,6 +9,9 @@ public class PlayerController : MonoBehaviour {
     public Vector2 movement;
     
     private GameObject[] enemies;
+
+    public Text counter;
+    private static int levelcount;
     
     private void Start() {
         animator = GetComponent<Animator>();
@@ -30,6 +33,7 @@ public class PlayerController : MonoBehaviour {
         }
         
         enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        DisplayLevelCounter();
     }
 
     private void FixedUpdate() {
@@ -40,7 +44,11 @@ public class PlayerController : MonoBehaviour {
         if (enemies.Length == 0) {
             other.GetComponent<RandomWalk>().GenerateDungeon();
             transform.position = new Vector3(-2.4f, 2.4f, -0.2f);
+            levelcount++;
         }
     }
-
+    
+    private void DisplayLevelCounter() {
+        counter.text = levelcount.ToString();
+    }
 }
