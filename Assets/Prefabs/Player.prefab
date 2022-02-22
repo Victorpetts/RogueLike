@@ -690,6 +690,7 @@ MonoBehaviour:
   movementSpeed: 4
   movement: {x: 0, y: 0}
   counter: {fileID: 0}
+  tutorial: {fileID: 0}
 --- !u!114 &3346124917375391500
 MonoBehaviour:
   m_ObjectHideFlags: 0

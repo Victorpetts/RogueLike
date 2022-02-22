@@ -11,8 +11,10 @@ public class PlayerController : MonoBehaviour {
     private GameObject[] enemies;
 
     public Text counter;
-    private static int levelcount;
-    
+    public Text tutorial;
+
+    public int LevelCount { get; private set; }
+
     private void Start() {
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
@@ -44,11 +46,12 @@ public class PlayerController : MonoBehaviour {
         if (enemies.Length == 0) {
             other.GetComponent<RandomWalk>().GenerateDungeon();
             transform.position = new Vector3(-2.4f, 2.4f, -0.2f);
-            levelcount++;
+            LevelCount++;
+            tutorial.gameObject.SetActive(false);
         }
     }
     
     private void DisplayLevelCounter() {
-        counter.text = levelcount.ToString();
+        counter.text = LevelCount.ToString();
     }
 }
