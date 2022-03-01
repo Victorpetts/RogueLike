@@ -266,7 +266,6 @@ GameObject:
   - component: {fileID: 8115410185962710776}
   - component: {fileID: 8115410185962710777}
   - component: {fileID: 8115410185962710773}
-  - component: {fileID: 8115410185962710772}
   - component: {fileID: 8115410185962710775}
   m_Layer: 6
   m_Name: Bat
@@ -388,28 +387,9 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8115410185962710782}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7ecc2992e604f4c46955891bc75d9a52, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 0
-  currentHealth: 0
-  moveSpeed: 0
-  aggroRange: 0
-  hpBar: {fileID: 8115410187418561802}
-  hpBarEffect: {fileID: 8115410185952028750}
-  attackRate: 2.5
---- !u!114 &8115410185962710772
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8115410185962710782}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f354fec6b99433645853bb4666aff9aa, type: 3}
+  m_Script: {fileID: 11500000, guid: 7ecc2992e604f4c46955891bc75d9a52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 1

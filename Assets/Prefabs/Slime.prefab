@@ -317,7 +317,6 @@ GameObject:
   - component: {fileID: 4400991822761810231}
   - component: {fileID: 4400991822761810217}
   - component: {fileID: 4400991822761810219}
-  - component: {fileID: 4400991822761810218}
   - component: {fileID: 4400991822761810221}
   m_Layer: 6
   m_Name: Slime
@@ -439,28 +438,9 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4400991822761810228}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7ecc2992e604f4c46955891bc75d9a52, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 10
-  currentHealth: 0
-  moveSpeed: 0
-  aggroRange: 0
-  hpBar: {fileID: 4400991821635157667}
-  hpBarEffect: {fileID: 4400991821562081725}
-  attackRate: 1.5
---- !u!114 &4400991822761810218
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4400991822761810228}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 238080dd8dfbe2c47992b5b80636effd, type: 3}
+  m_Script: {fileID: 11500000, guid: 7ecc2992e604f4c46955891bc75d9a52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 2
@@ -469,7 +449,7 @@ MonoBehaviour:
   aggroRange: 99
   hpBar: {fileID: 4400991821635157667}
   hpBarEffect: {fileID: 4400991821562081725}
-  attackRate: 1.5
+  attackRate: 1.1
 --- !u!61 &4400991822761810221
 BoxCollider2D:
   m_ObjectHideFlags: 0

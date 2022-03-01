@@ -62,17 +62,7 @@ public class PlayerCombat : MonoBehaviour {
         Collider2D[] enemiesHit = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayer);
 
         foreach (var enemy in enemiesHit) {
-            switch (enemy.name) {
-                case "Bat(Clone)":
-                    enemy.GetComponent<EnemyBat>().TakeDamage(attackDamage);
-                    break;
-                case "Slime(Clone)":
-                    enemy.GetComponent<EnemySlime>().TakeDamage(attackDamage);
-                    break;
-                case "Witch(Clone)":
-                    enemy.GetComponent<EnemyWitch>().TakeDamage(attackDamage);
-                    break;
-            }
+            enemy.GetComponent<EnemyController>().TakeDamage(attackDamage);
         }
     }
 

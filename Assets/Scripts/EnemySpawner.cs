@@ -17,7 +17,7 @@ public class EnemySpawner : MonoBehaviour {
                 low = high;
                 high += enemyProbabilities[i];
                 if (randomEnemy >= low && randomEnemy < high) {
-                    Vector2 spawnPosition = floorPositions.ElementAt(Random.Range(0, 10));
+                    Vector2 spawnPosition = floorPositions.ElementAt(Random.Range(0, 8));
                     Instantiate(enemyTypes[i], spawnPosition, Quaternion.identity);
                 }
             }

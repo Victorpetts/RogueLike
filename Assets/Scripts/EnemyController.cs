@@ -34,10 +34,7 @@ public class EnemyController : MonoBehaviour {
         CurrentHealth = maxHealth;
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         playerCombat = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerCombat>();
-        // playerCollider = GameObject.FindGameObjectWithTag("Player").GetComponent<BoxCollider2D>();
-        // enemyCollider = GetComponent<BoxCollider2D>();
         sprite = GetComponent<SpriteRenderer>();
-        // Physics2D.IgnoreCollision(playerCollider, enemyCollider, true);
     }
 
     private void Update() {
